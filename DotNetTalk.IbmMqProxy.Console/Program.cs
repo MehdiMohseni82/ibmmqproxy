@@ -38,15 +38,12 @@ namespace DotNetTalk.IbmMqProxy.Console
 
             Task.Run(() => _ibmMqProxy.ListenToTopic("QM1", "DEV.QUEUE.2", MessageHandler, ConnectionStatusChangedHandler));
 
-            while (true)
-            {
-                
-            }
+            while (true) { }
         }
 
-        private static void ConnectionStatusChangedHandler(ConnectionStatus connectionstatus)
+        private static void ConnectionStatusChangedHandler(ConnectionStatus connectionStatus)
         {
-            System.Console.WriteLine(connectionstatus);
+            System.Console.WriteLine(connectionStatus);
         }
 
         private static void MessageHandler(MQMessage message)
