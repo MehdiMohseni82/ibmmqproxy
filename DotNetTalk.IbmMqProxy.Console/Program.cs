@@ -19,14 +19,16 @@ namespace DotNetTalk.IbmMqProxy.Console
 
         static void Main(string[] args)
         {
-            _ibmMqProxy = new IBMMqClientApp.IbmMqProxy(new IbmMqProxyConnectionConfiguration
+            var connection = new IbmMqProxyConnectionConfiguration
             {
                 UserId = "app",
                 Password = "passw0rd",
                 Port = 1414,
                 Channel = "DEV.APP.SVRCONN",
                 HostName = "localhost(1414)"
-            });
+            };
+
+            _ibmMqProxy = new IBMMqClientApp.IbmMqProxy(connection);
 
             var msgToSend = new MessageToSend
             {
